@@ -16,9 +16,16 @@ request.onload = function() {
       const card = document.createElement('div');
       card.setAttribute('class', 'card');
       
-      // Create h1 element then set inner child to movie title 
+      // Create h1 element then set textContent to movie's title 
       const title = document.createElement('h1');
       title.textContent = movie.title;
+
+      // Create p element then set textContent to movie's description
+      const description = document.createElement('p');
+      // Limit description length to 300 chars to prevent text overflow 
+      movie.description= movie.description.subString,(0, 300);
+      package.textContent = `${movie.description}...`;
+
     });
   }
   else console.log('error');
