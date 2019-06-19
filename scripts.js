@@ -10,7 +10,14 @@ request.onload = function() {
   const data = JSON.parse(this.response);
 
   if (request.status >= 200 && request.status < 400) {
-    data.forEach(movie => console.log(movie.title));
+    data.forEach(movie => {
+
+      // Create div element then set class to card
+      const card = document.createElement('div');
+      card.setAttribute('class', 'card');
+      
+      
+    });
   }
   else console.log('error');
 }
@@ -23,9 +30,7 @@ request.send();
 const app = document.getElementById('root');
 
 const logo = document.createElement('img');
-
 logo.src = './img/logo.png'
-
 
 const container = document.createElement('div');
 container.setAttribute('class', 'container');
