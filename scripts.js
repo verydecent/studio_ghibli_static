@@ -1,3 +1,14 @@
+const app = document.getElementById('root');
+
+const logo = document.createElement('img');
+logo.src = './img/logo.png'
+
+const container = document.createElement('div');
+container.setAttribute('class', 'container');
+
+app.appendChild(logo);
+app.appendChild(container);
+
 // Creates a request variable and assigns a new XMLHttpRequest object instance to it
 const request = new XMLHttpRequest();
 
@@ -17,32 +28,29 @@ request.onload = function() {
       card.setAttribute('class', 'card');
       
       // Create h1 element then set textContent to movie's title 
-      const title = document.createElement('h1');
-      title.textContent = movie.title;
+      const h1 = document.createElement('h1');
+      h1.textContent = movie.title;
 
       // Create p element then set textContent to movie's description
-      const description = document.createElement('p');
+      const p = document.createElement('p');
       // Limit description length to 300 chars to prevent text overflow 
-      movie.description= movie.description.subString,(0, 300);
-      package.textContent = `${movie.description}...`;
+      movie.description= movie.description.substring(0, 300);
+      p.textContent = `${movie.description}...`;
 
+      // Append cards to the container element
+      container.appendChild(card);
+
+      // Append h1 and p to card
+      card.appendChild(h1);
+      card.appendChild(p);
     });
   }
-  else console.log('error');
+  else {
+    const errorMessage = document.createElement('marquee');
+    errorMessage.textContent = "Gah, it's not working!";
+    app.appendChild(errorMessage);
+  }
 }
 
 // Send request
 request.send();
-
-// DOM section
-
-const app = document.getElementById('root');
-
-const logo = document.createElement('img');
-logo.src = './img/logo.png'
-
-const container = document.createElement('div');
-container.setAttribute('class', 'container');
-
-app.appendChild(logo);
-app.appendChild(container);
