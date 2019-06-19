@@ -16,7 +16,9 @@ request.onload = function() {
       const card = document.createElement('div');
       card.setAttribute('class', 'card');
       
-      
+      // Create h1 element then set inner child to movie title 
+      const title = document.createElement('h1');
+      title.textContent = movie.title;
     });
   }
   else console.log('error');
