@@ -17,3 +17,11 @@ request.onload = function() {
 
 // Send request
 request.send();
+
+// DOM section
+
+const app = document.getElementById('root');
+
+const logo = document.createElement('img');
+
+// logo.src = './img/logo.png'
